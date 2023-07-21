@@ -17,6 +17,9 @@ public class HelloController {
         return "helloPage";
     }
 
+    /**
+     * MVC 방식
+     * */
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam(value = "name", required = false) String name, Model model){//required = false : param이 없어도 정상 동작
         model.addAttribute("name",name);//http://localhost:8080/hello-mvc?name=ggg : name = ggg -http get방식
@@ -31,6 +34,9 @@ public class HelloController {
         return "hello " + name;
     }
 
+    /**
+     * API 방식 : 객체를 반환
+     * */
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloApi(@RequestParam("name") String name){ //api 방식, JSON 방식(Key, value로 이루어진 구조)
