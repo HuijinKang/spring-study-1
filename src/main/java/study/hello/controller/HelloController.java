@@ -30,4 +30,25 @@ public class HelloController {
         //return "<html>hello " + name+"</html>";//html 방식
         return "hello " + name;
     }
+
+    @GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloApi(@RequestParam("name") String name){ //api 방식, JSON 방식(Key, value로 이루어진 구조)
+        Hello hello = new Hello();//객체 생성
+        hello.setName(name);
+
+        return hello;
+    }
+
+    static class Hello{ //static을 쓰면 HelloController안에서 클래스 사용 가능 HelloController.Class 이런식..
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }
