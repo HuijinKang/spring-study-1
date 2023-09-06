@@ -9,12 +9,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class MemoryMemberRepositoryTest {
+class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
-    @AfterEach
-    public void afterEach(){//메서드가 끝날때마다 이 메서드가 호출
+    @AfterEach // 메소드가 끝날때마다 이 메서드가 호출, 콜백 메소드
+    public void afterEach(){ // 테스트가 끝날 떄마다 레포지토리를 지워주는 메소드
         repository.clearStore();
     }
 
@@ -25,10 +25,10 @@ public class MemoryMemberRepositoryTest {
 
         repository.save(member);
 
-        Member result = repository.findByName(member.getName()).get();
+        Member result = repository.findByName(member.getName()).get(); // Optional에서 꺼낼 때 .get()을 사용
         System.out.println("(result == member) = " + (result == member));
-        //Assertions.assertEquals(member, result);
-        assertThat(member).isEqualTo(result);
+        //Assertions.assertEquals(member, result); // 같은 지 확인, result 대신 null이 들어가면 빨간불 에러
+        assertThat(member).isEqualTo(result); // static import를 통해 클래스명 없이 메소드 호출 가능
     }
 
     @Test
