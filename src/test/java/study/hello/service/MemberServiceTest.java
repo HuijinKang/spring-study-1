@@ -29,7 +29,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void 회원가입() {
+    void 회원가입() { // 테스트 코드는 한글로 적어도 괜찮음
         //given 상황이 주어졌을 때
         Member member = new Member();
         member.setName("hello");
@@ -39,7 +39,7 @@ class MemberServiceTest {
 
         //then 원하는 결과가 나와야함
         Member findMember = memberService.findOne(saveId).get();
-        assertThat(member.getName()).isEqualTo(findMember.getName());
+        assertThat(member.getName()).isEqualTo(findMember.getName()); // 이름 검증 member.getName() == findMember.getName()
     }
 
     @Test

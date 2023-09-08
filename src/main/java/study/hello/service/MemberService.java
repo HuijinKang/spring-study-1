@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
-
+// 클래스에서 command+shift+t => test 생성
     private final MemberRepository memberRepository;
 
     //DI
