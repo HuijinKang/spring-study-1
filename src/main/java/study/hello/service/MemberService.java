@@ -11,10 +11,10 @@ public class MemberService {
 // 클래스에서 command+shift+t => test 생성
     private final MemberRepository memberRepository;
 
-    //DI
+    // DI : 직접 new를 통해 생성하지 않고 외부에서 memberRepository를 외부에서 넣어줌
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-    }
+    } // 생성자를 통해 외부에서 memberRepository필드에 객체를 넣어준다
 
     /**
      * 회원 가입
